@@ -21,7 +21,7 @@ if (csvContent) {
 	link.style.display = "none";
 	link.setAttribute("id", "exportar_agenda");
 	link.setAttribute("href", encodedUri);
-	link.setAttribute("download", "agenda_dia.csv");
+	link.setAttribute("download", "agenda_renato_" + moment().format("YYYY-MM-DD") + ".csv");
 	link.innerHTML= "Click Here to download";
 	document.body.appendChild(link);
 	link.click();
