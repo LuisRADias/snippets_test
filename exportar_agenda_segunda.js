@@ -13,11 +13,19 @@ lista_clientes.forEach(function (infoArray, index) {
 });
 var csvContent = lineArray.join("\n");
 
-var encodedUri = encodeURI(csvContent);
-var link = document.createElement("a");
-link.setAttribute("href", encodedUri);
-link.setAttribute("download", "agenda_dia.csv");
-link.innerHTML= "Click Here to download";
-document.body.appendChild(link); // Required for FF
+$("#exportar_agenda").remove();
 
-link.click(); // This will download the data file named "my_data.csv".
+if (csvContent) {
+	var encodedUri = encodeURI(csvContent);
+	var link = document.createElement("a");
+	link.style.display = "none";
+	link.setAttribute("id", "exportar_agenda");
+	link.setAttribute("href", encodedUri);
+	link.setAttribute("download", "agenda_dia.csv");
+	link.innerHTML= "Click Here to download";
+	document.body.appendChild(link);
+	link.click();
+}
+else {
+	alert("Não há clientes agendados para este dia");
+}
