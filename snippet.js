@@ -4,6 +4,7 @@ $(".fc-content-skeleton").find("td:nth-child(2)").find(".fc-event-container").fi
 	lista_clientes.push($(this).find(".fc-content").find(".fc-title").html().split(" - "));
 });
 
+var csvContent = "";
 lista_clientes.forEach(function(rowArray){
    let row = rowArray.join(",");
    csvContent += row + "\r\n";
