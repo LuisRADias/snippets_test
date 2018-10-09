@@ -1,6 +1,8 @@
 var lista_clientes = [];
 
-$(".fc-content-skeleton").find("td:nth-child(2)").find(".fc-event-container").find("a").each(function () {
+var dia = parseInt(moment().format("d")) + 1;
+
+$(".fc-content-skeleton").find("td:nth-child(" + dia + ")").find(".fc-event-container").find("a").each(function () {
 	lista_clientes.push($(this).find(".fc-content").find(".fc-title").html().split(" - "));
 });
 
