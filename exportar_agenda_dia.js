@@ -18,11 +18,12 @@ $("#exportar_agenda").remove();
 if (csvContent) {
 	var encodedUri = encodeURI(csvContent);
 	var link = document.createElement("a");
-	link.id = "exportar_agenda";
+	link.style.display = "none";
+	link.setAttribute("id", "exportar_agenda");
 	link.setAttribute("href", encodedUri);
 	link.setAttribute("download", "agenda_dia.csv");
 	link.innerHTML= "Click Here to download";
-	document.body.appendChild(link); // Required for FF
+	document.body.appendChild(link);
 	link.click();
 }
 else {
