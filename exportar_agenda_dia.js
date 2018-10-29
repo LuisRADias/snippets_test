@@ -27,5 +27,5 @@ if (csvContent) {
 	link.click();
 }
 else {
-	alert("N&atilde;o h&aacute; clientes agendados para este dia");
+	alert("N\xE3o h\xE1 clientes agendados para este dia");
 }
