@@ -1,6 +1,6 @@
 var lista_clientes = [];
 
-var dia = 2;
+var dia = 3;
 
 $(".fc-content-skeleton").find("td:nth-child(" + dia + ")").find(".fc-event-container").find("a").each(function () {
 	lista_clientes.push($(this).find(".fc-content").find(".fc-title").html().split(" - "));
