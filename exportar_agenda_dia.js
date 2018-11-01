@@ -1,3 +1,21 @@
+function remover_acentos (valor) {
+	var rules = [
+		[/(á|à|ã|â|ä)/gi, 'a'],
+		[/(é|è|ê|ë)/gi, 'e'],
+		[/í|ì|î|ï/gi, 'i'],
+		[/(ó|ò|õ|ô|ö)/gi, 'o'],
+		[/(ú|ù|û|ü)/gi, 'u'],
+		[/(ç)/gi, 'c'],
+		[/(ñ)/gi, 'n'],
+	];
+	
+	var nome = valor;
+	for (var i = 0; i < rules.length; i++)
+		nome = nome.replace(rules[i][0], rules[i][1]);
+	
+	return nome;
+}
+
 var lista_clientes = [];
 
 var dia = parseInt(moment().format("d")) + 1;
@@ -8,7 +26,7 @@ $(".fc-content-skeleton").find("td:nth-child(" + dia + ")").find(".fc-event-cont
 
 var lineArray = [];
 lista_clientes.forEach(function (infoArray, index) {
-    var line = infoArray.join(";");
+    var line = remover_acentos(infoArray.join(";"));
     lineArray.push(index == 0 ? "data:text/csv;charset=utf-8," + line : line);
 });
 var csvContent = lineArray.join("\n");
